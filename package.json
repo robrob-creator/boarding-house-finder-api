@@ -1,0 +1,43 @@
+{
+  "name": "sifs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "blubird": "^0.0.1-security",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.1",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.7",
+    "hapi-auth-jwt2": "^10.2.0",
+    "hapi-mongodb": "^10.0.3",
+    "hapi-response-time": "^2.2.3",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.5.2",
+    "node-color-log": "^10.0.2",
+    "path": "^0.12.7",
+    "semaphore": "^1.1.0",
+    "semaphore-sms": "^0.0.1",
+    "semaphore.co-sms": "^1.0.2"
+  },
+  "engines": {
+    "node": "v16.15.0",
+    "npm": "8.5.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
