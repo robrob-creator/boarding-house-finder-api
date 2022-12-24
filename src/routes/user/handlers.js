@@ -40,25 +40,27 @@ internals.create_user = async (req, res) => {
   var payload = { ...req.payload, password: hashedPassword };
   var userData = new User(payload);
 
-  return await User.findOne({ idNo: req.payload.idNo }).then((data, error) => {
-    if (error)
-      return res
-        .response({
-          message: "Error in the server",
-        })
-        .code(500);
-    if (data)
-      return res
-        .response({
-          message: "ID no. already taken.",
-        })
-        .code(409);
-    else {
-      return userData.save().then(async (data) => {
-        return res.response(data).code(200);
-      });
+  return await User.findOne({ email: req.payload.email }).then(
+    (data, error) => {
+      if (error)
+        return res
+          .response({
+            message: "Error in the server",
+          })
+          .code(500);
+      if (data)
+        return res
+          .response({
+            message: "email already taken.",
+          })
+          .code(409);
+      else {
+        return userData.save().then(async (data) => {
+          return res.response(data).code(200);
+        });
+      }
     }
-  });
+  );
 };
 internals.create_teacher = async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.payload.password, 10);

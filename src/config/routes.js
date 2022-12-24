@@ -4,8 +4,8 @@ var internals = {};
 
 // Endpoints
 let User = require("../routes/user/endpoints");
-
-internals.routes = [...User.endpoints];
+let Main = require("../routes/main/endpoints");
+internals.routes = [...User.endpoints, ...Main.endpoints];
 
 internals.init = function (server) {
   server.route(internals.routes);
