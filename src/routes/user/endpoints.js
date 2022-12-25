@@ -4,6 +4,14 @@ var Handlers = require("./handlers"),
 
 internals.endpoints = [
   {
+    method: ["POST"],
+    path: "/login",
+    handler: Handlers.authenticate,
+    config: {
+      auth: false,
+    },
+  },
+  {
     method: "POST",
     path: "/user",
     handler: Handlers.create_user,
