@@ -2,14 +2,15 @@
 
 const bcrypt = require("bcryptjs");
 const User = require("../../database/models/User");
-
+const jwt = require("jsonwebtoken");
+const Config = require("../../config");
 var internals = {};
 
 internals.authenticate = async (req, reply) => {
   const { email, password } = req.payload;
 
   try {
-    let _profile = await User.findOne({ email }).populate("specializations");
+    let _profile = await User.findOne({ email });
 
     if (!_profile) {
       return reply
@@ -43,6 +44,7 @@ internals.authenticate = async (req, reply) => {
       })
       .code(200);
   } catch (e) {
+    console.log(e);
     return reply
       .response({
         message: "Server error",
