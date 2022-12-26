@@ -2,23 +2,7 @@
 
 var internals = {};
 const BoardingHouse = require("../../database/models/boardingHouse");
-const multer = require("multer");
-const upload = multer({ dest: "../../images" });
 
-internals.upload_photos = async (req, res) => {
-  try {
-    return (
-      upload.array("photos", 12),
-      function (req, res, next) {
-        // req.files is array of `photos` files
-        // req.body will contain the text fields, if there were any
-        return res;
-      }
-    );
-  } catch (e) {
-    return res.response({ message: e });
-  }
-};
 internals.add_boardingHouse = async (req, res) => {
   let id = req.auth.credentials.id;
   let photos = req.payload.photos;

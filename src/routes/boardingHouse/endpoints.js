@@ -11,20 +11,7 @@ internals.endpoints = [
       auth: "token",
     },
   },
-  {
-    method: ["POST"],
-    path: "/upload",
-    options: {
-      payload: {
-        output: "file",
-        parse: true,
-        multipart: true,
-        maxBytes: 100000000000,
-      },
-      handler: Handlers.upload_photos,
-      auth: "token",
-    },
-  },
+
   {
     method: ["GET"],
     path: "/boarding-house-list",
