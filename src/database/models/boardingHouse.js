@@ -9,6 +9,7 @@ const BoardingHouseSchema = new mongoose.Schema(
     photos: { type: Array },
     status: { type: Array },
     map_link: { type: String },
+    rent_price: { type: String },
   },
   { timestamps: true }
 );
