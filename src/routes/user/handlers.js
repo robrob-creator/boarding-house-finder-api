@@ -122,10 +122,17 @@ internals.signup = async (req, res) => {
 
 internals.profile = async (req, reply) => {
   try {
+    if (!req?.auth?.credentials?.email) {
+      return reply
+        .response({
+          message: "Data not found",
+        })
+        .code(201);
+    }
     let _profile = await User.findOne({
       _id: req.auth.credentials._id,
     });
-
+    console.log("the checking", _profile, req.auth.credentials.id);
     let profile = JSON.parse(JSON.stringify(_profile));
     delete profile.password;
     delete profile.__v;
