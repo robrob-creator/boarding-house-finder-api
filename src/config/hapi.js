@@ -1,5 +1,5 @@
 "use strict";
-
+const Inert = require("@hapi/inert");
 var Hapi = require("@hapi/hapi"),
   Routes = require("./routes"),
   Auth = require("./auth"),
@@ -22,6 +22,7 @@ exports.deployment = async () => {
       },
     },
   });
+  await internals.server.register(Inert);
 
   internals.server.events.on("response", function (request) {
     let codeColor;

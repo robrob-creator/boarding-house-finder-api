@@ -10,6 +10,7 @@ async function start() {
 
   console.log("server.info", server.info);
   console.log(`Server started attttttt ${server.info.uri}`);
+
   await server.start();
 }
 
