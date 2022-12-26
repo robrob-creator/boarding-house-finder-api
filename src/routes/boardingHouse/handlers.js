@@ -7,6 +7,7 @@ internals.add_boardingHouse = async (req, res) => {
   let id = req.auth.credentials.id;
   let photos = req.payload.photos;
   let newBoardingHouse = BoardingHouse({
+    owner: req.auth.credentials.id,
     ...req.payload,
     status: { status: req.payload.status, updatorId: id },
   });

@@ -12,6 +12,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     email: { type: String },
     userName: { type: String },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
