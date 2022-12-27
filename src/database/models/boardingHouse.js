@@ -9,6 +9,7 @@ const BoardingHouseSchema = new mongoose.Schema(
     photos: { type: Array },
     deleted: { type: Boolean, default: false },
     status: { type: Array },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     map_link: { type: String },
     rent_price: { type: String },
   },
