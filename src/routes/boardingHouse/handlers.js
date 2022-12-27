@@ -118,7 +118,7 @@ internals.get_boardingHouse_list = async (req, reply) => {
   }
 };
 internals.delete_boarding_house = async (req, res) => {
-  return await User.findOneAndUpdate(
+  return await BoardingHouse.findOneAndUpdate(
     { _id: req.params.id },
     {
       $set: {
@@ -139,7 +139,7 @@ internals.delete_boarding_house = async (req, res) => {
     });
 };
 internals.edit_boarding_house = async (req, res) => {
-  return await User.findOneAndUpdate(
+  return await BoardingHouse.findOneAndUpdate(
     { _id: req.params.id },
     {
       $set: {
