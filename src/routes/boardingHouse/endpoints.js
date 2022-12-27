@@ -74,6 +74,22 @@ internals.endpoints = [
       auth: false,
     },
   },
+  {
+    method: ["POST"],
+    path: "/edit-boarding-house/{id}",
+    handler: Handlers.edit_boarding_house,
+    config: {
+      auth: "token",
+    },
+  },
+  {
+    method: ["POST"],
+    path: "/delete-boarding-house/{id}",
+    handler: Handlers.delete_boarding_house,
+    config: {
+      auth: "token",
+    },
+  },
 ];
 
 module.exports = internals;

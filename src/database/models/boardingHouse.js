@@ -7,6 +7,7 @@ const BoardingHouseSchema = new mongoose.Schema(
     available_rooms: { type: Number },
     address: { type: String, required: true },
     photos: { type: Array },
+    deleted: { type: Boolean, default: false },
     status: { type: Array },
     map_link: { type: String },
     rent_price: { type: String },

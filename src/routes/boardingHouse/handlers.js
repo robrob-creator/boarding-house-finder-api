@@ -112,5 +112,46 @@ internals.get_boardingHouse_list = async (req, reply) => {
       .code(500);
   }
 };
-
+internals.delete_boarding_house = async (req, res) => {
+  return await User.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      $set: {
+        deleted: true,
+      },
+    },
+    { new: true }
+  )
+    .then((data) => {
+      return res
+        .response({
+          message: "Deleted successfully",
+        })
+        .code(200);
+    })
+    .catch(() => {
+      return res.reponse({ message: "Error in the server" }).code(500);
+    });
+};
+internals.edit_boarding_house = async (req, res) => {
+  return await User.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      $set: {
+        ...req.payload,
+      },
+    },
+    { new: true }
+  )
+    .then((data) => {
+      return res
+        .response({
+          message: "Deleted successfully",
+        })
+        .code(200);
+    })
+    .catch(() => {
+      return res.reponse({ message: "Error in the server" }).code(500);
+    });
+};
 module.exports = internals;
