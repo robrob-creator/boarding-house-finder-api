@@ -58,7 +58,7 @@ internals.add_boardingHouse = async (req, res) => {
 };
 
 internals.get_boardingHouse_list = async (req, reply) => {
-  let { id, name, address, status, searchKey } = req.query;
+  let { id, name, address, status, searchKey, owner, deleted } = req.query;
 
   try {
     let query = {};
@@ -74,7 +74,12 @@ internals.get_boardingHouse_list = async (req, reply) => {
     if (address) {
       query = { ...query, address };
     }
-
+    if (owner) {
+      query = { ...query, owner };
+    }
+    if (deleted) {
+      query = { ...query, deleted };
+    }
     if (searchKey) {
       query = {
         ...query,
